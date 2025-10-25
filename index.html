@@ -1,45 +1,264 @@
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XyberIQ • HIPAA Readiness Report</title>
+<meta name="color-scheme" content="dark light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* === XyberIQ Report Theme (inlined) ====================================== */
+:root{
+  --electric:#0072FF; --aqua:#00E0FF; --success:#1dd1a1; --warn:#ffcc00; --danger:#ff6b6b; --radius:14px;
+  --bg:#0A0F1E; --panel:#0F162D; --panel-2:#101838; --text:#E8EEFF; --muted:#A0ACD2; --line:#1B2342; --chip:#0c1228; --shadow:0 28px 48px rgba(2,8,28,.45);
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#f7faff; --panel:#ffffff; --panel-2:#f3f6ff; --text:#0b1221; --muted:#47507a; --line:#dfe5ff; --chip:#eef3ff; --shadow:0 14px 34px rgba(4,22,65,.10) }
+}
+:root[data-theme="dark"]{ --bg:#0A0F1E; --panel:#0F162D; --panel-2:#101838; --text:#E8EEFF; --muted:#A0ACD2; --line:#1B2342; --chip:#0c1228; --shadow:0 28px 48px rgba(2,8,28,.45) }
+:root[data-theme="light"]{ --bg:#f7faff; --panel:#ffffff; --panel-2:#f3f6ff; --text:#0b1221; --muted:#47507a; --line:#dfe5ff; --chip:#eef3ff; --shadow:0 14px 34px rgba(4,22,65,.10) }
 
-  <title>HIPAA Compliance Training & Risk Assessment | XyberIQ</title>
-  <meta name="description" content="Make HIPAA simple—assess risk, visualize gaps, and train staff with XyberIQ’s healthcare-ready compliance platform." />
-  <link rel="canonical" href="https://hipaa.xyberiq.io/" />
-  <meta name="robots" content="index,follow" />
+html{color-scheme: dark light}
+body{
+  margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: radial-gradient(1200px 600px at 10% -10%, #13204a 0%, var(--bg) 45%), var(--bg); color:var(--text);
+}
+.container{max-width:960px;margin:0 auto;padding:28px}
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="HIPAA Compliance Made Simple | XyberIQ" />
-  <meta property="og:description" content="Assess HIPAA readiness, get a gap report, and train staff in plain language." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hipaa.xyberiq.io/" />
-  <meta property="og:image" content="https://hipaa.xyberiq.io/assets/hipaa-og-1200x630.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HIPAA Compliance Made Simple | XyberIQ" />
-  <meta name="twitter:description" content="Risk assessment, roadmap, and training for healthcare teams." />
-  <meta name="twitter:image" content="https://hipaa.xyberiq.io/assets/hipaa-og-1200x630.png" />
+/* Header */
+.report-head{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:40px;height:40px;border-radius:12px;background:conic-gradient(from 180deg,var(--electric),var(--aqua),var(--electric));box-shadow:0 8px 22px rgba(0,114,255,.35)}
+.brand-title{font-weight:800;font-size:18px;letter-spacing:.2px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--chip);border:1px solid var(--line);color:var(--muted);padding:8px 12px;border-radius:999px;font-weight:700;font-size:12px}
+.badge .dot{width:8px;height:8px;border-radius:999px;background:var(--aqua);box-shadow:0 0 0 3px rgba(0,224,255,.15)}
+.head-actions{display:flex;gap:8px;align-items:center}
+.btn{all:unset;cursor:pointer;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--chip);color:var(--muted);font-weight:800}
+.btn:hover{filter:brightness(1.05)}
 
-  <!-- JSON-LD: SoftwareApplication -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "XyberIQ — HIPAA Readiness",
-    "applicationCategory": "SecurityApplication",
-    "operatingSystem": "Web",
-    "url": "https://hipaa.xyberiq.io/",
-    "description": "HIPAA compliance made simple—assess risk, visualize gaps, and train staff with XyberIQ.",
-    "audience": {"@type": "Audience", "audienceType": "Healthcare organizations"}
-  }
-  </script>
+/* Sections / Cards */
+.section{margin-top:18px}
+.card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.card h2{margin:0 0 10px;font:800 18px/1.2 Inter}
+.card p{margin:0;color:var(--muted)}
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-692Y0RXXZ7"></script>
-  
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-692Y0RXXZ7');
-  </script>
+/* Two-col layout helpers */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+/* KPI grid */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kpi{background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi .label{font-size:12px;color:var(--muted)}
+.kpi .value{font-weight:900;font-size:20px}
+
+/* Progress / Score bar */
+.progress{height:12px;border-radius:999px;background:#0b1430;border:1px solid var(--line);overflow:hidden}
+.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--electric),var(--aqua))}
+
+/* Table */
+.table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:12px}
+.table th,.table td{padding:12px 14px;text-align:left;vertical-align:top}
+.table thead th{background:linear-gradient(180deg,var(--panel-2),var(--panel));color:var(--muted);font-weight:800;border-bottom:1px solid var(--line)}
+.table tbody tr+tr td{border-top:1px solid var(--line)}
+.sev-high{color:#ff7b7b;font-weight:800}
+.sev-med{color:#ffd166;font-weight:800}
+.sev-low{color:#7dffcf;font-weight:800}
+
+/* Callouts & list */
+.callout{border-left:4px solid var(--electric);background:rgba(0,114,255,.06);border-radius:10px;padding:12px 14px;color:var(--muted)}
+ul.tight{margin:8px 0 0 18px;padding:0}
+ul.tight li{margin:6px 0}
+
+/* Footer */
+.footer{margin:22px 0 8px;color:var(--muted);text-align:center;font-size:12px}
+
+/* Print */
+@media print{
+  :root{color-scheme:light}
+  body{background:#fff !important;color:#111 !important}
+  .report-head,.card{box-shadow:none;background:#fff;border:1px solid #d9e2ff}
+  .badge{background:#eef3ff;border-color:#d9e2ff;color:#223}
+  .kpi{background:#f5f8ff;border-color:#d9e2ff}
+  .progress{background:#eee;border-color:#ddd}
+  .table thead th{background:#f3f6ff;color:#223;border-color:#d9e2ff}
+  .callout{background:#f5fbff;border-left-color:#0072FF}
+  .btn,.head-actions{display:none !important}
+}
+</style>
 </head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header class="report-head">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-title">XyberIQ • HIPAA Readiness Report</div>
+      </div>
+      <div class="head-actions">
+        <span class="badge"><span class="dot"></span> Client Copy</span>
+        <button class="btn" onclick="xyberTheme.toggle()">Theme</button>
+        <button class="btn" onclick="window.print()">Print / PDF</button>
+      </div>
+    </header>
+
+    <!-- CLIENT META + SCORE -->
+    <div class="section cols">
+      <div class="card">
+        <h2>Organization</h2>
+        <p><strong id="orgName">Acme Health Group</strong></p>
+        <p>Assessment Date: <span id="assessDate"></span></p>
+        <p>Assessor: XyberIQ</p>
+      </div>
+      <div class="card">
+        <h2>Overall Readiness</h2>
+        <div class="kpis">
+          <div class="kpi"><div class="label">Score</div><div class="value" id="scoreVal">72 / 100</div></div>
+          <div class="kpi"><div class="label">Band</div><div class="value" id="bandVal">Moderate Risk</div></div>
+          <div class="kpi"><div class="label">Time to Plan</div><div class="value">30–90 days</div></div>
+        </div>
+        <div style="margin-top:10px">
+          <div class="progress" aria-label="Readiness">
+            <span id="scoreBar" style="width:72%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section card">
+      <h2>Executive Summary</h2>
+      <p class="callout">Focus the next 30–90 days on BAAs, access controls (MFA), and audit logging. Close high-severity gaps first; batch low-effort wins to build momentum and evidence.</p>
+    </div>
+
+    <!-- TOP GAPS -->
+    <div class="section card">
+      <h2>Top Gaps</h2>
+      <table class="table">
+        <thead>
+          <tr><th>Safeguard</th><th>Gap</th><th>Severity</th><th>Action</th></tr>
+        </thead>
+        <tbody id="gapsTable">
+          <tr>
+            <td>Business Associate Agreements (BAAs)</td>
+            <td>No executed BAAs for two key vendors handling ePHI.</td>
+            <td class="sev-high">High</td>
+            <td>Execute BAAs; centralize repository and renewal cadence.</td>
+          </tr>
+          <tr>
+            <td>Access Control (MFA)</td>
+            <td>MFA not enforced for EHR remote access; shared accounts exist.</td>
+            <td class="sev-high">High</td>
+            <td>Mandate MFA; eliminate shared accounts; enable SSO policy.</td>
+          </tr>
+          <tr>
+            <td>Audit Controls</td>
+            <td>Insufficient log retention and review for ePHI systems.</td>
+            <td class="sev-med">Medium</td>
+            <td>Expand retention to 12–18 months; weekly review workflow.</td>
+          </tr>
+          <tr>
+            <td>Security Awareness Training</td>
+            <td>Annual training completed, but phishing simulations absent.</td>
+            <td class="sev-med">Medium</td>
+            <td>Quarterly simulations; targeted refreshers after failures.</td>
+          </tr>
+          <tr>
+            <td>Device & Media Controls</td>
+            <td>No formal wipe/chain-of-custody for retired laptops.</td>
+            <td class="sev-low">Low</td>
+            <td>Adopt standardized wipe, certificate of destruction, log.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- REMEDIATION PLAN -->
+    <div class="section cols">
+      <div class="card">
+        <h2>30–90 Day Plan</h2>
+        <ul class="tight">
+          <li><strong>Weeks 1–2:</strong> Execute outstanding BAAs; enable MFA on EHR/VPN; kill shared accounts.</li>
+          <li><strong>Weeks 3–4:</strong> Expand logging; define weekly review owner + dashboard; quick SOPs.</li>
+          <li><strong>Weeks 5–6:</strong> Phishing simulation #1; micro-training for failed users.</li>
+          <li><strong>Weeks 7–8:</strong> Asset lifecycle SOP; wipe/certification workflow; central log.</li>
+          <li><strong>Weeks 9–12:</strong> Internal audit spot-check; compile evidence binder.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Evidence Checklist</h2>
+        <ul class="tight">
+          <li>Signed BAAs (PDFs) + tracker</li>
+          <li>MFA policy + SSO config screenshots</li>
+          <li>Audit log retention settings + weekly review record</li>
+          <li>Training roster + phishing metrics</li>
+          <li>Device wipe certificates + inventory ledger</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DETAILED FINDINGS -->
+    <div class="section card">
+      <h2>Detailed Findings</h2>
+      <table class="table">
+        <thead><tr><th>HIPAA §</th><th>Control</th><th>Status</th><th>Notes / Evidence Needed</th></tr></thead>
+        <tbody id="detailRows">
+          <tr><td>164.308(a)(1)</td><td>Risk Analysis</td><td>Partial</td><td>Last full RA > 18 months; schedule updated assessment.</td></tr>
+          <tr><td>164.308(a)(3)</td><td>Workforce Security</td><td>Partial</td><td>Offboarding checklist exists; needs automated access revocation.</td></tr>
+          <tr><td>164.312(a)(2)(i)</td><td>Unique User ID</td><td>Partial</td><td>Two shared service accounts remain; replace with scoped roles.</td></tr>
+          <tr><td>164.312(d)</td><td>Person/Entity Authentication</td><td>Gap</td><td>MFA not enforced for remote EHR; enforce across all ePHI apps.</td></tr>
+          <tr><td>164.312(b)</td><td>Audit Controls</td><td>Gap</td><td>Enable immutable logging + alerting for anomalous access.</td></tr>
+          <tr><td>164.310(d)(2)(i)</td><td>Disposal</td><td>Partial</td><td>Formal wipe/cert process needed for retired devices.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">© <span id="y"></span> XyberIQ — HIPAA Readiness</div>
+  </div>
+
+<script>
+/* === Theme toggle (inlined) ============================================== */
+(function(){
+  const root = document.documentElement;
+  const saved = localStorage.getItem('xyberiq-theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  window.xyberTheme = {
+    toggle(){
+      const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('xyberiq-theme', next);
+    }
+  };
+})();
+
+/* === Tiny demo wiring (replace with your real data if you inject) ========= */
+(function(){
+  const now = new Date();
+  document.getElementById('assessDate').textContent = now.toLocaleDateString();
+  document.getElementById('y').textContent = now.getFullYear();
+
+  // If you have a numeric score from the quiz page, set it here:
+  // Example: const score = Number(new URLSearchParams(location.search).get('score')||72);
+  const params = new URLSearchParams(location.search);
+  const score = Math.max(0, Math.min(100, Number(params.get('score')||72)));
+  const band  = score >= 85 ? 'Ready' : score >= 70 ? 'Moderate Risk' : score >= 50 ? 'Elevated Risk' : 'High Risk';
+  document.getElementById('scoreVal').textContent = `${score} / 100`;
+  document.getElementById('bandVal').textContent = band;
+  document.getElementById('scoreBar').style.width = score + '%';
+
+  // Optional: accept ?org=Your+Name to populate client name
+  const org = params.get('org');
+  if (org) document.getElementById('orgName').textContent = decodeURIComponent(org.replace(/\+/g,' '));
+})();
+</script>
+</body>
+</html>
+
