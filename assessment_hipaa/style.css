@@ -1,19 +1,39 @@
+:root{
+  --electric:#0072FF; --aqua:#00E0FF; --bg:#0A0F1E; --panel:#0F162D; --panel2:#101838; --line:#1B2342; --text:#E8EEFF; --muted:#A0ACD2;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#f7faff; --panel:#ffffff; --panel2:#f3f6ff; --line:#dfe5ff; --text:#0b1221; --muted:#47507a; }
+}
+*{box-sizing:border-box}
 body{
-  margin:0;background:#0A0F1E;color:#E8EEFF;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  margin:0;background:radial-gradient(1100px 560px at 12% -8%, #182759 0%, transparent 55%), var(--bg);
+  color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
 }
-.container{max-width:700px;margin:0 auto;padding:32px}
-h1{font-weight:800;font-size:28px;margin-bottom:8px}
-p{color:#A0ACD2}
-.q{margin:18px 0}
-label{display:block;margin-bottom:6px;font-weight:600}
-select{
-  width:100%;padding:10px;border-radius:8px;border:1px solid #1B2342;
-  background:#0F162D;color:#E8EEFF
+.wrap{max-width:860px;margin:0 auto;padding:28px}
+.head .brand{display:flex;align-items:center;gap:12px}
+.mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 180deg,var(--electric),var(--aqua),var(--electric));box-shadow:0 6px 18px rgba(0,114,255,.35)}
+h1{margin:0;font-weight:800;font-size:28px}
+.lead{color:var(--muted);margin:8px 0 14px}
+.card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:0 20px 40px rgba(2,8,28,.35); margin:16px 0;
 }
+h2{margin:0 0 10px;font-weight:800;font-size:18px}
+.hint{color:var(--muted);margin:4px 0 12px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+label{display:flex;flex-direction:column;gap:6px;font-weight:600}
+input,select{
+  padding:12px;border-radius:12px;border:1px solid var(--line);background:#0d142b;color:var(--text)
+}
+.q{margin:12px 0}
+.actions{display:flex;flex-direction:column;gap:8px;margin-top:10px}
 button{
-  margin-top:24px;background:linear-gradient(90deg,#0072FF,#00E0FF);
-  color:#001534;font-weight:800;border:0;padding:12px 20px;border-radius:12px;cursor:pointer
+  background:linear-gradient(90deg,var(--electric),var(--aqua));color:#001534;font-weight:800;
+  border:0;padding:14px 18px;border-radius:14px;cursor:pointer
 }
 button:hover{filter:brightness(1.05)}
-footer{text-align:center;margin-top:40px;color:#8da0c8;font-size:12px}
+.fine{color:var(--muted);font-size:12px}
+.foot{color:var(--muted);text-align:center;margin-top:22px;font-size:12px}
+
+
