@@ -1,36 +1,111 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>HIPAA Readiness Assessment | XyberIQ</title>
   <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>HIPAA Readiness Assessment</h1>
-    <p>Answer 12 quick questions to gauge your organization’s HIPAA posture.</p>
+  <div class="wrap">
+    <header class="head">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <h1>HIPAA Readiness Assessment</h1>
+      </div>
+      <p class="lead">Twelve fast questions across Admin, Physical, and Technical Safeguards. Get an instant score, readiness band, and a branded gap report.</p>
+    </header>
 
-    <form id="hipaaForm">
-      <div class="q"><label>1. Do you have executed BAAs with all vendors handling ePHI?</label>
-        <select required><option value="">Select</option><option value="5">Yes, all</option><option value="3">Some</option><option value="1">None</option></select>
+    <!-- Org info -->
+    <section class="card">
+      <h2>Organization</h2>
+      <div class="grid">
+        <label>Organization Name
+          <input id="org" required placeholder="Acme Health Group">
+        </label>
+        <label>Contact Email (optional)
+          <input id="email" type="email" placeholder="security@acmehealth.com">
+        </label>
+        <label>Role (optional)
+          <input id="role" placeholder="Compliance / IT / Security">
+        </label>
       </div>
-      <div class="q"><label>2. Is MFA enforced for EHR and remote access?</label>
-        <select required><option value="">Select</option><option value="5">Fully</option><option value="3">Partially</option><option value="1">No</option></select>
+    </section>
+
+    <!-- Quiz -->
+    <form id="quiz" class="card">
+      <h2>Readiness Check (12 items)</h2>
+      <p class="hint">Pick what best reflects reality today. Scoring: Strong (5) • Partial (3) • Not in place (1).</p>
+
+      <!-- Administrative Safeguards -->
+      <div class="q">
+        <label>1) Risk Analysis & Management (164.308(a)(1)): Most recent enterprise risk analysis?</label>
+        <select required><option value="">Select…</option><option value="5">≤ 12 months, plan tracked</option><option value="3">13–24 months, partial plan</option><option value="1">> 24 months / none</option></select>
       </div>
-      <div class="q"><label>3. How often do you review access logs?</label>
-        <select required><option value="">Select</option><option value="5">Weekly</option><option value="3">Monthly</option><option value="1">Rarely/Never</option></select>
+      <div class="q">
+        <label>2) Workforce Security & Offboarding (164.308(a)(3)): Access removed on day of separation?</label>
+        <select required><option value="">Select…</option><option value="5">Automated, audited</option><option value="3">Manual checklist</option><option value="1">Ad-hoc / delayed</option></select>
       </div>
-      <!-- add more questions as needed -->
-      <button type="submit">View My Report →</button>
+      <div class="q">
+        <label>3) Security Awareness & Training (164.308(a)(5)): Phishing simulations + refreshers?</label>
+        <select required><option value="">Select…</option><option value="5">Quarterly sims + targeted refreshers</option><option value="3">Annual training only</option><option value="1">No program</option></select>
+      </div>
+      <div class="q">
+        <label>4) Contingency Plan (164.308(a)(7)): Tested backups & disaster recovery runbook?</label>
+        <select required><option value="">Select…</option><option value="5">Tested in last 12 mo</option><option value="3">Documented, not tested</option><option value="1">Not documented</option></select>
+      </div>
+
+      <!-- Physical Safeguards -->
+      <div class="q">
+        <label>5) Facility Access Controls (164.310(a)): Badge/visitor controls with logs?</label>
+        <select required><option value="">Select…</option><option value="5">Enforced + logs retained</option><option value="3">Partial / manual logs</option><option value="1">No controls/logs</option></select>
+      </div>
+      <div class="q">
+        <label>6) Workstation Use/Security (164.310(b–c)): Screen lock & positioning standards?</label>
+        <select required><option value="">Select…</option><option value="5">Policy + MDM enforced</option><option value="3">Policy only</option><option value="1">None</option></select>
+      </div>
+      <div class="q">
+        <label>7) Device & Media Controls (164.310(d)): Wipe/destruction with certificates?</label>
+        <select required><option value="">Select…</option><option value="5">Standardized + documented</option><option value="3">Informal process</option><option value="1">No process</option></select>
+      </div>
+
+      <!-- Technical Safeguards -->
+      <div class="q">
+        <label>8) Access Control—Unique IDs (164.312(a)): Any shared accounts remaining?</label>
+        <select required><option value="">Select…</option><option value="5">No shared accounts</option><option value="3">Few remain / exceptions</option><option value="1">Many shared accounts</option></select>
+      </div>
+      <div class="q">
+        <label>9) MFA for ePHI Systems (164.312(d) auth): MFA on EHR/VPN/admin?</label>
+        <select required><option value="">Select…</option><option value="5">Everywhere required</option><option value="3">Remote only</option><option value="1">Not enforced</option></select>
+      </div>
+      <div class="q">
+        <label>10) Audit Controls (164.312(b)): Log retention & weekly review?</label>
+        <select required><option value="">Select…</option><option value="5">12–18 mo retained + weekly review</option><option value="3">Short retention / ad-hoc review</option><option value="1">No useful logs</option></select>
+      </div>
+      <div class="q">
+        <label>11) Integrity Controls (164.312(c)(1)): Tamper detection / hashing where appropriate?</label>
+        <select required><option value="">Select…</option><option value="5">In place + monitored</option><option value="3">Partially in place</option><option value="1">Not implemented</option></select>
+      </div>
+      <div class="q">
+        <label>12) Transmission Security (164.312(e)): TLS in transit; email encryption for ePHI?</label>
+        <select required><option value="">Select…</option><option value="5">TLS + email encryption policy</option><option value="3">TLS only</option><option value="1">Unencrypted paths</option></select>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Get Score & View Report →</button>
+        <p class="fine">Your score is an advisory snapshot, not a certification. The report will outline gaps and a 30–90 day plan.</p>
+      </div>
     </form>
 
-    <footer>© <span id="y"></span> XyberIQ • HIPAA Assessment</footer>
+    <footer class="foot">© <span id="y"></span> XyberIQ • HIPAA Readiness</footer>
   </div>
 
   <script src="script.js"></script>
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
+
