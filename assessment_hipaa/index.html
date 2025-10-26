@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HIPAA Readiness Assessment | XyberIQ</title>
+  <meta name="color-scheme" content="dark light">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>HIPAA Readiness Assessment</h1>
+    <p>Answer 12 quick questions to gauge your organization’s HIPAA posture.</p>
+
+    <form id="hipaaForm">
+      <div class="q"><label>1. Do you have executed BAAs with all vendors handling ePHI?</label>
+        <select required><option value="">Select</option><option value="5">Yes, all</option><option value="3">Some</option><option value="1">None</option></select>
+      </div>
+      <div class="q"><label>2. Is MFA enforced for EHR and remote access?</label>
+        <select required><option value="">Select</option><option value="5">Fully</option><option value="3">Partially</option><option value="1">No</option></select>
+      </div>
+      <div class="q"><label>3. How often do you review access logs?</label>
+        <select required><option value="">Select</option><option value="5">Weekly</option><option value="3">Monthly</option><option value="1">Rarely/Never</option></select>
+      </div>
+      <!-- add more questions as needed -->
+      <button type="submit">View My Report →</button>
+    </form>
+
+    <footer>© <span id="y"></span> XyberIQ • HIPAA Assessment</footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
