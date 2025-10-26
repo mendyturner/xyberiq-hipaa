@@ -1,264 +1,167 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>XyberIQ • HIPAA Readiness Report</title>
-<meta name="color-scheme" content="dark light">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-/* === XyberIQ Report Theme (inlined) ====================================== */
-:root{
-  --electric:#0072FF; --aqua:#00E0FF; --success:#1dd1a1; --warn:#ffcc00; --danger:#ff6b6b; --radius:14px;
-  --bg:#0A0F1E; --panel:#0F162D; --panel-2:#101838; --text:#E8EEFF; --muted:#A0ACD2; --line:#1B2342; --chip:#0c1228; --shadow:0 28px 48px rgba(2,8,28,.45);
-}
-@media (prefers-color-scheme: light){
-  :root{ --bg:#f7faff; --panel:#ffffff; --panel-2:#f3f6ff; --text:#0b1221; --muted:#47507a; --line:#dfe5ff; --chip:#eef3ff; --shadow:0 14px 34px rgba(4,22,65,.10) }
-}
-:root[data-theme="dark"]{ --bg:#0A0F1E; --panel:#0F162D; --panel-2:#101838; --text:#E8EEFF; --muted:#A0ACD2; --line:#1B2342; --chip:#0c1228; --shadow:0 28px 48px rgba(2,8,28,.45) }
-:root[data-theme="light"]{ --bg:#f7faff; --panel:#ffffff; --panel-2:#f3f6ff; --text:#0b1221; --muted:#47507a; --line:#dfe5ff; --chip:#eef3ff; --shadow:0 14px 34px rgba(4,22,65,.10) }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>XyberIQ • HIPAA Readiness Suite</title>
+  <meta name="description" content="Assess HIPAA readiness in minutes—get a branded gap report and a 30–90 day action plan.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --electric:#0072FF; --aqua:#00E0FF; --ink:#0B1221; --muted:#a0acd2;
+      --bg:#0A0F1E; --panel:#0F162D; --panel2:#101838; --line:#1B2342; --chip:#0c1228; --white:#fff;
+      --radius:16px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7faff; --panel:#ffffff; --panel2:#f3f6ff; --ink:#0b1221; --muted:#47507a; --line:#dfe5ff; --chip:#eef3ff;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:#e8eeff; background:radial-gradient(1100px 560px at 12% -8%, #182759 0%, transparent 55%) , var(--bg);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:22px}
 
-html{color-scheme: dark light}
-body{
-  margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  background: radial-gradient(1200px 600px at 10% -10%, #13204a 0%, var(--bg) 45%), var(--bg); color:var(--text);
-}
-.container{max-width:960px;margin:0 auto;padding:28px}
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px); background:#0c1225aa;border-bottom:1px solid #141a30}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 22px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 180deg,var(--electric),var(--aqua),var(--electric));box-shadow:0 6px 18px rgba(0,114,255,.35)}
+    .word{font:800 18px/1 Poppins;color:#dfe6ff;letter-spacing:.2px}
+    .nav a.link{color:#a9b2d0;padding:8px 10px;border-radius:10px}
+    .nav a.link:hover{background:#121a34}
+    .nav a.btn{padding:10px 14px;border-radius:12px;font-weight:800;background:linear-gradient(90deg,var(--electric),var(--aqua));color:#001534}
 
-/* Header */
-.report-head{
-  display:flex;justify-content:space-between;align-items:center;gap:16px;
-  background:linear-gradient(180deg,var(--panel),var(--panel-2));
-  border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)
-}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:40px;height:40px;border-radius:12px;background:conic-gradient(from 180deg,var(--electric),var(--aqua),var(--electric));box-shadow:0 8px 22px rgba(0,114,255,.35)}
-.brand-title{font-weight:800;font-size:18px;letter-spacing:.2px}
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--chip);border:1px solid var(--line);color:var(--muted);padding:8px 12px;border-radius:999px;font-weight:700;font-size:12px}
-.badge .dot{width:8px;height:8px;border-radius:999px;background:var(--aqua);box-shadow:0 0 0 3px rgba(0,224,255,.15)}
-.head-actions{display:flex;gap:8px;align-items:center}
-.btn{all:unset;cursor:pointer;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--chip);color:var(--muted);font-weight:800}
-.btn:hover{filter:brightness(1.05)}
+    /* Hero */
+    .hero{position:relative;overflow:hidden;padding:88px 0 40px}
+    .orb{position:absolute;inset:-220px -220px auto auto;width:560px;height:560px;border-radius:999px;filter:blur(60px) saturate(120%);
+      background:
+        radial-gradient(220px 220px at 70% 40%, rgba(0,224,255,.35), transparent 60%),
+        conic-gradient(from 180deg, rgba(0,114,255,.45), rgba(0,224,255,.40), rgba(0,114,255,.45));
+      animation:float 12s ease-in-out infinite;opacity:.75;pointer-events:none}
+    @keyframes float{50%{transform:translateY(-18px)}}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+    .eyebrow{color:#8fbaff;font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:12px}
+    .h1{font:800 42px/1.05 Poppins;margin:10px 0 12px;color:#f6f9ff}
+    .lead{color:#b8c3e3;font-size:18px}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(90deg,var(--electric),var(--aqua));color:#001534;padding:14px 18px;border:0;border-radius:14px;font-weight:800}
+    .btn-ghost{background:#0d142b;border:1px solid #1a2343;color:#dbe5ff;padding:14px 16px;border-radius:14px;font-weight:800}
+    .panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 20px 40px rgba(2,8,28,.35)}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .kpi{background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:12px}
+    .kpi .label{font-size:12px;color:#8ea0c8}
+    .kpi .value{font-weight:800;font-size:20px}
 
-/* Sections / Cards */
-.section{margin-top:18px}
-.card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
-.card h2{margin:0 0 10px;font:800 18px/1.2 Inter}
-.card p{margin:0;color:var(--muted)}
+    /* Feature cards */
+    .section{padding:54px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:16px;padding:18px}
+    .card h3{margin:6px 0 6px;font:800 18px/1.2 Inter}
+    .card p{margin:0;color:#b8c3e3;font-size:14px}
 
-/* Two-col layout helpers */
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media (max-width:900px){.cols{grid-template-columns:1fr}}
+    /* Steps */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:16px;padding:18px}
+    .step .n{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;background:linear-gradient(90deg,var(--electric),var(--aqua));color:#001534;font-weight:900;margin-bottom:8px}
 
-/* KPI grid */
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.kpi{background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.kpi .label{font-size:12px;color:var(--muted)}
-.kpi .value{font-weight:900;font-size:20px}
+    /* Footer */
+    footer{color:#8da0c8;border-top:1px solid #141a30;padding:22px 0;margin-top:40px;font-size:12px;text-align:center}
 
-/* Progress / Score bar */
-.progress{height:12px;border-radius:999px;background:#0b1430;border:1px solid var(--line);overflow:hidden}
-.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--electric),var(--aqua))}
-
-/* Table */
-.table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:12px}
-.table th,.table td{padding:12px 14px;text-align:left;vertical-align:top}
-.table thead th{background:linear-gradient(180deg,var(--panel-2),var(--panel));color:var(--muted);font-weight:800;border-bottom:1px solid var(--line)}
-.table tbody tr+tr td{border-top:1px solid var(--line)}
-.sev-high{color:#ff7b7b;font-weight:800}
-.sev-med{color:#ffd166;font-weight:800}
-.sev-low{color:#7dffcf;font-weight:800}
-
-/* Callouts & list */
-.callout{border-left:4px solid var(--electric);background:rgba(0,114,255,.06);border-radius:10px;padding:12px 14px;color:var(--muted)}
-ul.tight{margin:8px 0 0 18px;padding:0}
-ul.tight li{margin:6px 0}
-
-/* Footer */
-.footer{margin:22px 0 8px;color:var(--muted);text-align:center;font-size:12px}
-
-/* Print */
-@media print{
-  :root{color-scheme:light}
-  body{background:#fff !important;color:#111 !important}
-  .report-head,.card{box-shadow:none;background:#fff;border:1px solid #d9e2ff}
-  .badge{background:#eef3ff;border-color:#d9e2ff;color:#223}
-  .kpi{background:#f5f8ff;border-color:#d9e2ff}
-  .progress{background:#eee;border-color:#ddd}
-  .table thead th{background:#f3f6ff;color:#223;border-color:#d9e2ff}
-  .callout{background:#f5fbff;border-left-color:#0072FF}
-  .btn,.head-actions{display:none !important}
-}
-</style>
+    @media (max-width:920px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards,.steps,.kpis{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <!-- HEADER -->
-    <header class="report-head">
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner wrap">
       <div class="brand">
-        <div class="brand-mark" aria-hidden="true"></div>
-        <div class="brand-title">XyberIQ • HIPAA Readiness Report</div>
+        <div class="mark" aria-hidden="true"></div>
+        <div class="word">XyberIQ • HIPAA</div>
       </div>
-      <div class="head-actions">
-        <span class="badge"><span class="dot"></span> Client Copy</span>
-        <button class="btn" onclick="xyberTheme.toggle()">Theme</button>
-        <button class="btn" onclick="window.print()">Print / PDF</button>
+      <div style="display:flex;gap:8px;align-items:center">
+        <a class="link" href="#features">Features</a>
+        <a class="link" href="#how">How it works</a>
+        <a class="btn" href="/assessment_hipaa/index.html">Start Assessment</a>
       </div>
-    </header>
+    </div>
+  </div>
 
-    <!-- CLIENT META + SCORE -->
-    <div class="section cols">
-      <div class="card">
-        <h2>Organization</h2>
-        <p><strong id="orgName">Acme Health Group</strong></p>
-        <p>Assessment Date: <span id="assessDate"></span></p>
-        <p>Assessor: XyberIQ</p>
-      </div>
-      <div class="card">
-        <h2>Overall Readiness</h2>
-        <div class="kpis">
-          <div class="kpi"><div class="label">Score</div><div class="value" id="scoreVal">72 / 100</div></div>
-          <div class="kpi"><div class="label">Band</div><div class="value" id="bandVal">Moderate Risk</div></div>
-          <div class="kpi"><div class="label">Time to Plan</div><div class="value">30–90 days</div></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="orb"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">HIPAA readiness • fast</div>
+        <h1 class="h1">Assess. Get gaps. Act in <span style="color:#7fd8ff">30–90 days</span>.</h1>
+        <p class="lead">Run a 12-question HIPAA check, see your readiness band instantly, and export a branded gap report that leadership will actually read.</p>
+        <div class="cta">
+          <a class="btn-primary" href="/assessment_hipaa/index.html">Start HIPAA Assessment →</a>
+          <a class="btn-ghost" href="/reports_hipaa/hipaa_gap_report_xyberiq.html">Preview Report</a>
         </div>
-        <div style="margin-top:10px">
-          <div class="progress" aria-label="Readiness">
-            <span id="scoreBar" style="width:72%"></span>
+        <div class="panel" style="margin-top:16px">
+          <div class="kpis">
+            <div class="kpi"><div class="label">Time to first report</div><div class="value">~4 minutes</div></div>
+            <div class="kpi"><div class="label">Readiness bands</div><div class="value">High → Ready</div></div>
+            <div class="kpi"><div class="label">Export</div><div class="value">Print-to-PDF</div></div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- SUMMARY -->
-    <div class="section card">
-      <h2>Executive Summary</h2>
-      <p class="callout">Focus the next 30–90 days on BAAs, access controls (MFA), and audit logging. Close high-severity gaps first; batch low-effort wins to build momentum and evidence.</p>
-    </div>
-
-    <!-- TOP GAPS -->
-    <div class="section card">
-      <h2>Top Gaps</h2>
-      <table class="table">
-        <thead>
-          <tr><th>Safeguard</th><th>Gap</th><th>Severity</th><th>Action</th></tr>
-        </thead>
-        <tbody id="gapsTable">
-          <tr>
-            <td>Business Associate Agreements (BAAs)</td>
-            <td>No executed BAAs for two key vendors handling ePHI.</td>
-            <td class="sev-high">High</td>
-            <td>Execute BAAs; centralize repository and renewal cadence.</td>
-          </tr>
-          <tr>
-            <td>Access Control (MFA)</td>
-            <td>MFA not enforced for EHR remote access; shared accounts exist.</td>
-            <td class="sev-high">High</td>
-            <td>Mandate MFA; eliminate shared accounts; enable SSO policy.</td>
-          </tr>
-          <tr>
-            <td>Audit Controls</td>
-            <td>Insufficient log retention and review for ePHI systems.</td>
-            <td class="sev-med">Medium</td>
-            <td>Expand retention to 12–18 months; weekly review workflow.</td>
-          </tr>
-          <tr>
-            <td>Security Awareness Training</td>
-            <td>Annual training completed, but phishing simulations absent.</td>
-            <td class="sev-med">Medium</td>
-            <td>Quarterly simulations; targeted refreshers after failures.</td>
-          </tr>
-          <tr>
-            <td>Device & Media Controls</td>
-            <td>No formal wipe/chain-of-custody for retired laptops.</td>
-            <td class="sev-low">Low</td>
-            <td>Adopt standardized wipe, certificate of destruction, log.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- REMEDIATION PLAN -->
-    <div class="section cols">
-      <div class="card">
-        <h2>30–90 Day Plan</h2>
-        <ul class="tight">
-          <li><strong>Weeks 1–2:</strong> Execute outstanding BAAs; enable MFA on EHR/VPN; kill shared accounts.</li>
-          <li><strong>Weeks 3–4:</strong> Expand logging; define weekly review owner + dashboard; quick SOPs.</li>
-          <li><strong>Weeks 5–6:</strong> Phishing simulation #1; micro-training for failed users.</li>
-          <li><strong>Weeks 7–8:</strong> Asset lifecycle SOP; wipe/certification workflow; central log.</li>
-          <li><strong>Weeks 9–12:</strong> Internal audit spot-check; compile evidence binder.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Evidence Checklist</h2>
-        <ul class="tight">
-          <li>Signed BAAs (PDFs) + tracker</li>
-          <li>MFA policy + SSO config screenshots</li>
-          <li>Audit log retention settings + weekly review record</li>
-          <li>Training roster + phishing metrics</li>
-          <li>Device wipe certificates + inventory ledger</li>
-        </ul>
+      <div>
+        <div class="panel">
+          <!-- Swap this image name if yours differs -->
+          <img src="/assets/hipaa-og-1200x630.png" alt="HIPAA report preview" style="width:100%;border-radius:12px;border:1px solid #1b2342;display:block">
+          <p style="color:#8ea0c8;font-size:12px;margin:10px 2px 0">This image is also your Open Graph card for social shares.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- DETAILED FINDINGS -->
-    <div class="section card">
-      <h2>Detailed Findings</h2>
-      <table class="table">
-        <thead><tr><th>HIPAA §</th><th>Control</th><th>Status</th><th>Notes / Evidence Needed</th></tr></thead>
-        <tbody id="detailRows">
-          <tr><td>164.308(a)(1)</td><td>Risk Analysis</td><td>Partial</td><td>Last full RA > 18 months; schedule updated assessment.</td></tr>
-          <tr><td>164.308(a)(3)</td><td>Workforce Security</td><td>Partial</td><td>Offboarding checklist exists; needs automated access revocation.</td></tr>
-          <tr><td>164.312(a)(2)(i)</td><td>Unique User ID</td><td>Partial</td><td>Two shared service accounts remain; replace with scoped roles.</td></tr>
-          <tr><td>164.312(d)</td><td>Person/Entity Authentication</td><td>Gap</td><td>MFA not enforced for remote EHR; enforce across all ePHI apps.</td></tr>
-          <tr><td>164.312(b)</td><td>Audit Controls</td><td>Gap</td><td>Enable immutable logging + alerting for anomalous access.</td></tr>
-          <tr><td>164.310(d)(2)(i)</td><td>Disposal</td><td>Partial</td><td>Formal wipe/cert process needed for retired devices.</td></tr>
-        </tbody>
-      </table>
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="cards">
+        <div class="card">
+          <h3>Client-side, instant scoring</h3>
+          <p>No backend needed. The assessment, scoring, and report preview run right in the browser for speed.</p>
+        </div>
+        <div class="card">
+          <h3>Actionable gap report</h3>
+          <p>Branded, friendly to leadership, and mapped to a simple 30–90 day plan with evidence checklists.</p>
+        </div>
+        <div class="card">
+          <h3>Automation-ready</h3>
+          <p>Wire the form to Make.com → HubSpot for automatic lead capture and follow-ups by band.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- FOOTER -->
-    <div class="footer">© <span id="y"></span> XyberIQ — HIPAA Readiness</div>
-  </div>
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Assess</h3><p>12 questions on policies, access, logging, training, and vendors.</p></div>
+        <div class="step"><div class="n">2</div><h3>Report</h3><p>See score + band instantly. Export a sharp, print-ready gap report.</p></div>
+        <div class="step"><div class="n">3</div><h3>Act</h3><p>Follow a 30–90 day plan and capture evidence as you close gaps.</p></div>
+      </div>
+      <div class="cta" style="margin-top:18px">
+        <a class="btn-primary" href="/assessment_hipaa/index.html">Start Assessment</a>
+        <a class="btn-ghost" href="/reports_hipaa/hipaa_gap_report_xyberiq.html">Preview Report</a>
+      </div>
+    </div>
+  </section>
 
-<script>
-/* === Theme toggle (inlined) ============================================== */
-(function(){
-  const root = document.documentElement;
-  const saved = localStorage.getItem('xyberiq-theme');
-  if (saved) root.setAttribute('data-theme', saved);
-  window.xyberTheme = {
-    toggle(){
-      const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark');
-      const next = current === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('xyberiq-theme', next);
-    }
-  };
-})();
-
-/* === Tiny demo wiring (replace with your real data if you inject) ========= */
-(function(){
-  const now = new Date();
-  document.getElementById('assessDate').textContent = now.toLocaleDateString();
-  document.getElementById('y').textContent = now.getFullYear();
-
-  // If you have a numeric score from the quiz page, set it here:
-  // Example: const score = Number(new URLSearchParams(location.search).get('score')||72);
-  const params = new URLSearchParams(location.search);
-  const score = Math.max(0, Math.min(100, Number(params.get('score')||72)));
-  const band  = score >= 85 ? 'Ready' : score >= 70 ? 'Moderate Risk' : score >= 50 ? 'Elevated Risk' : 'High Risk';
-  document.getElementById('scoreVal').textContent = `${score} / 100`;
-  document.getElementById('bandVal').textContent = band;
-  document.getElementById('scoreBar').style.width = score + '%';
-
-  // Optional: accept ?org=Your+Name to populate client name
-  const org = params.get('org');
-  if (org) document.getElementById('orgName').textContent = decodeURIComponent(org.replace(/\+/g,' '));
-})();
-</script>
+  <footer>© <span id="y"></span> XyberIQ • HIPAA Readiness Suite</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
-
