@@ -1,0 +1,13 @@
+.logo {
+  height: 56px;   /* larger logo for desktops */
+  width: auto;
+  max-height: none;
+  display: block;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 36px;  /* smaller logo for mobile */
+  }
+}
