@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>XyberIQ • HIPAA Readiness Suite</title>
+  <title>HIPAA Readiness Suite</title>
   <meta name="description" content="Assess HIPAA readiness in minutes—get a branded gap report and a 30–90 day action plan.">
   <meta name="color-scheme" content="dark light">
   <link rel="icon" href="https://xyberiq.io/assets/favicon.ico">
@@ -186,6 +186,19 @@
       font-size: 12px;
       text-align: center;
     }
+    .logo{
+  height:42px;      /* try 38–46 for your taste */
+  width:auto;
+  max-height:none;
+  display:block;
+}
+
+/* Optional: hide tagline on small screens */
+@media (max-width:768px){
+  .site-header{flex-wrap:wrap;gap:8px}
+  .logo{height:36px;}
+  .site-title{display:none;}
+}
     /* Responsive adjustments */
     @media (max-width: 920px) {
       .hero-grid { grid-template-columns: 1fr; }
@@ -234,7 +247,8 @@
         <div>
           <div class="panel">
             <img src="/assets/hipaa-og-1200x630.png" alt="HIPAA report preview" style="width:100%;border-radius:12px;border:1px solid #1b2342;display:block">
-            <p style="color:#8ea0c8;font-size:12px;margin:10px 2px 0" img src="/assets/AI_Driven_Compliance.png" atl="HIPAA AI Training and Compliance" </p>
+            <p style="color:#8ea0c8;font-size:12px;margin:10px 2px 0"</p>
+              <img src="/assets/AI_Driven_Compliance.png" atl="HIPAA AI Training and Compliance" </p>
           </div>
         </div>
       </div>
