@@ -66,5 +66,7 @@
   .nav-cta { order: 2; margin-left: auto; } /* keep CTA on the right */
   .brand { order: 1; }
 }
+.nav { position: sticky; top: 0; backdrop-filter: blur(6px); }
+
 
 
