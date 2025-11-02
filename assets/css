@@ -1,13 +1,22 @@
-.logo {
-  height: 56px;   /* larger logo for desktops */
-  width: auto;
-  max-height: none;
-  display: block;
-  border-radius: 10px;
+/* Desktop screens (≥1024px) */
+.site-header img.logo {
+  height: 80px;
+  max-height: 80px;
 }
 
-@media (max-width: 768px) {
-  .logo {
-    height: 36px;  /* smaller logo for mobile */
+/* Tablet screens (768px–1023px) */
+@media (max-width: 1023px) {
+  .site-header img.logo {
+    height: 70px;
+    max-height: 70px;
   }
 }
+
+/* Mobile screens (≤767px) */
+@media (max-width: 767px) {
+  .site-header img.logo {
+    height: 50px;
+    max-height: 50px;
+  }
+}
+
