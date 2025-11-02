@@ -64,8 +64,14 @@
     .btn-ghost:hover {
       background: #23293a;
     }
-    .panel, .card {
+    .panel {
       background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      color: #e8eeff;
+    }
+    .card {
+      background: var(--support-gray);
       border-radius: var(--radius);
       border: 1px solid var(--line);
       color: #e8eeff;
@@ -187,7 +193,7 @@
       text-align: center;
     }
     .logo{
-  height:42px;      /* try 38–46 for your taste */
+  height:44px;      /* matches xyberiq.io and beta.xyberiq.io */
   width:auto;
   max-height:none;
   display:block;
@@ -299,7 +305,9 @@
   </script>
 
   <footer>
-    © <span id="y"></span> XyberIQ • HIPAA Readiness Suite
+    © <span id="y"></span> XyberIQ • HIPAA Readiness Suite •
+    <a href="/assets/privacy-policy.html" style="color: #8da0c8; text-decoration: none;">Privacy Policy</a> •
+    <a href="/assets/terms-and-conditions.html" style="color: #8da0c8; text-decoration: none;">Terms & Conditions</a>
   </footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
