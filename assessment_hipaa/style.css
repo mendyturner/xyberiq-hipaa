@@ -36,4 +36,53 @@ button:hover{filter:brightness(1.05)}
 .fine{color:var(--muted);font-size:12px}
 .foot{color:var(--muted);text-align:center;margin-top:22px;font-size:12px}
 
+/* Nav layout */
+.nav { position: relative; z-index: 10; }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Push the menu to the right; CTA sits after it on the far edge */
+.main-nav {
+  margin-left: auto;               /* <-- key: moves menu to the right */
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Optional visual spacing before CTA */
+.nav-cta { 
+  margin-left: 12px;
+}
+
+/* Link styling (match your palette) */
+.link {
+  color: #cfe2ff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 8px;
+  border-radius: 10px;
+}
+.link:hover { 
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+}
+
+/* Mobile: stack items and keep CTA visible */
+@media (max-width: 768px){
+  .nav-inner { flex-wrap: wrap; }
+  .main-nav { 
+    order: 3; 
+    width: 100%;
+    justify-content: flex-start;   /* or center if you prefer */
+    margin-left: 0;
+    gap: 12px;
+  }
+  .nav-cta { order: 2; margin-left: auto; } /* keep CTA on the right */
+  .brand { order: 1; }
+}
+.nav { position: sticky; top: 0; backdrop-filter: blur(6px); }
+
 
