@@ -1,23 +1,23 @@
 /* Desktop screens (≥1024px) */
-.site-header img.logo {
-  height: 80px;
-  max-height: 80px;
+header .logo {
+  max-height: 120px;   /* try 100–140px for proportion */
+  height: auto;
+  width: auto;
 }
 
 /* Tablet screens (768px–1023px) */
 @media (max-width: 1023px) {
   .site-header img.logo {
-    height: 70px;
-    max-height: 70px;
+    height: 80px;
+    max-height: 80px;
   }
 }
 
 /* Mobile screens (≤767px) */
-@media (max-width: 767px) {
-  .site-header img.logo {
-    height: 50px;
-    max-height: 50px;
-  }
+@media (max-width:720px) {
+  .mark { width: 52px; height: 52px; }
+}
+
 }
 /* Nav layout */
 .nav { position: relative; z-index: 10; }
