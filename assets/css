@@ -26,18 +26,49 @@ header .logo {
   align-items: center;
   gap: 16px;
 }
-
-/* Push the menu to the right; CTA sits after it on the far edge */
-.main-nav {
-  margin-left: auto;               /* <-- key: moves menu to the right */
+/* Layout the header in a single flex row */
+.site-header .header-inner {
   display: flex;
-  gap: 16px;
   align-items: center;
+  gap: 24px;
+  padding: 12px 20px;        /* adjust as you like */
 }
 
-/* Optional visual spacing before CTA */
-.nav-cta { 
-  margin-left: 12px;
+/* Push nav (and thus CTA) to the right */
+.main-nav { 
+  margin-left: auto;         /* <-- key line: everything after moves right */
+}
+
+/* Horizontal nav list */
+.main-nav ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+.main-nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* CTA sits just to the right of the nav */
+.btn.cta {
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  /* keep your brand gradient if you have one */
+  background: linear-gradient(90deg, var(--electric, #0072FF), var(--aqua, #00E0FF));
+  color: #fff;
+}
+
+/* Mobile: stack or hide the full nav if you don’t have a burger yet */
+@media (max-width: 720px) {
+  .main-nav { display: none; }           /* or convert to a drawer */
+  .btn.cta { margin-left: auto; }        /* keeps CTA right-aligned */
 }
 
 /* Link styling (match your palette) */
@@ -53,20 +84,7 @@ header .logo {
   color: #ffffff;
 }
 
-/* Mobile: stack items and keep CTA visible */
-@media (max-width: 768px){
-  .nav-inner { flex-wrap: wrap; }
-  .main-nav { 
-    order: 3; 
-    width: 100%;
-    justify-content: flex-start;   /* or center if you prefer */
-    margin-left: 0;
-    gap: 12px;
-  }
-  .nav-cta { order: 2; margin-left: auto; } /* keep CTA on the right */
-  .brand { order: 1; }
-}
-.nav { position: sticky; top: 0; backdrop-filter: blur(6px); }
+
 
 
 
