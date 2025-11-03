@@ -1,32 +1,4 @@
 /* Desktop screens (≥1024px) */
-
-header .logo {
-  max-height: 120px;   /* try 100–140px for proportion */
-  height: auto;
-  width: auto;
-}
-
-/* Tablet screens (768px–1023px) */
-@media (max-width: 1023px) {
-  .site-header img.logo {
-    height: 80px;
-    max-height: 80px;
-  }
-}
-
-/* Mobile screens (≤767px) */
-@media (max-width:720px) {
-  .mark { width: 52px; height: 52px; }
-}
-
-}
-/* Nav layout */
-.nav { position: relative; z-index: 10; }
-.nav-inner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
 /* Layout the header in a single flex row */
 .site-header .header-inner {
   display: flex;
@@ -72,17 +44,23 @@ header .logo {
   .btn.cta { margin-left: auto; }        /* keeps CTA right-aligned */
 }
 
-/* Link styling (match your palette) */
-.link {
-  color: #cfe2ff;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 10px 8px;
-  border-radius: 10px;
+header .logo {
+  max-height: 120px;   /* try 100–140px for proportion */
+  height: auto;
+  width: auto;
 }
-.link:hover { 
-  background: rgba(255,255,255,0.06);
-  color: #ffffff;
+
+/* Tablet screens (768px–1023px) */
+@media (max-width: 1023px) {
+  .site-header img.logo {
+    height: 80px;
+    max-height: 80px;
+  }
+}
+
+/* Mobile screens (≤767px) */
+@media (max-width:720px) {
+  .mark { width: 52px; height: 52px; }
 }
 
 
