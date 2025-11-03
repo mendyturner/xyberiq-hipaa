@@ -1,4 +1,5 @@
 /* Desktop screens (≥1024px) */
+
 header .logo {
   max-height: 120px;   /* try 100–140px for proportion */
   height: auto;
